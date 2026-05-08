@@ -23,7 +23,7 @@ export default defineConfig({
       ],
     }),
   ],
-  base:'/agent-foresight',
+  base:'zbox1005.github.io/agent-foresight',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
