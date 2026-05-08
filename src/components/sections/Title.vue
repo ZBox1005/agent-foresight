@@ -4,19 +4,19 @@ import { ElIcon } from 'element-plus'
 import { Document, Files, MagicStick, Picture, DataAnalysis, Film } from '@element-plus/icons-vue'
 
 // logo地址，没有则置为""即可
-const logo = './logo.png'
+const logo = 'resources/logo_full.png'
 
-// 标题
-const title = 'Academic Project Page Template'
+// 标题（logo_full 已含品牌字样，H1 只放副标题，避免重复）
+const title = ''
 
 // 标题颜色
 const title_color = '#000000'
 
 // 标题补充，没有则置为''即可
-const title_supp = ' (Vue based)'
+const title_supp = 'Online Auditing for Early Failure Prediction in Multi-Agent Systems'
 
 // 标题补充颜色
-const title_supp_color = '#42B883'
+const title_supp_color = '#000000'
 
 // 按钮颜色
 const btn_color = '#444444'
@@ -24,21 +24,33 @@ const btn_color = '#444444'
 // 作者清单（包含作者姓名、头像、主页、地址序号）
 const authors = [
   {
-    name: "Your Name",
-    icon: "./icon/junyaohu.jpg",
-    homepage: "https://junyaohu.github.io/",
-    address_flag: "1,#"
+    name: "Boxuan Zhang",
+    icon: "",
+    homepage: "https://zbox1005.github.io/",
+    address_flag: "1"
   },
   {
-    name: "Anya Forger",
-    icon: "./icon/anya.jpg",
-    homepage: "https://www.bilibili.com/video/BV1jv4y1P7Bb",
-    address_flag: "2,#"
+    name: "Jianing Zhu",
+    icon: "",
+    homepage: "https://zfancy.github.io/",
+    address_flag: "2"
   },
   {
-    name: "BugCat Capoo",
-    icon: "./icon/capoo.webp",
-    homepage: "https://zh.moegirl.org.cn/%E7%8C%AB%E7%8C%AB%E8%99%AB%E5%92%96%E6%B3%A2",
+    name: "Zeru Shi",
+    icon: "",
+    homepage: "https://vanpe20.github.io/",
+    address_flag: "1"
+  },
+  {
+    name: "Dongfang Liu",
+    icon: "",
+    homepage: "https://dongfang-liu.github.io/",
+    address_flag: "3"
+  },
+  {
+    name: "Ruixiang Tang",
+    icon: "",
+    homepage: "https://www.ruixiangtang.net/",
     address_flag: "1,*"
   },
 ]
@@ -47,78 +59,65 @@ const authors = [
 const addresses = [
   {
     address_flag: "1",
-    name: "Home University",
-    icon: "./icon/home.png",
-    homepage: "https://github.com/hmuniversity"
+    name: "Rutgers University",
+    icon: "resources/ru_icon.png",
+    homepage: "https://www.rutgers.edu/"
   },
   {
     address_flag: "2",
-    name: "IKUN University",
-    icon: "./icon/ikun.avif",
-    homepage: "https://www.bilibili.com/video/BV178411Y7QB"
+    name: "University of Texas at Austin",
+    icon: "resources/uta_icon.png",
+    homepage: "https://www.utexas.edu/"
+  },
+  {
+    address_flag: "3",
+    name: "Rochester Institute of Technology",
+    icon: "resources/rit_icon.png",
+    homepage: "https://www.rit.edu/"
   },
 ]
 
 // 共一和通讯提示
-const con_and_corresponding_author = 
-  "#: Equal Contribution. *: Corresponding Author."
+const con_and_corresponding_author =
+  "*: Corresponding Author."
 
 // 最新消息
-const news = "🔥 [2024-12-15] This template project is still under development."
+const news = ""
 
 // 强调内容
-const emphases = [
-  "🎉 [ABCD 2024] Poster",
-  "🥰 欢迎关注“减论”微信公众号/B站/知乎/小红书",
-  "传递人工智能算法科普教育的减约理解",
-  "提升信息效率及认知维度"
-]
+const emphases = []
 
 // 提供引导资料链接
 const buttons = [
   {
-    disabled: true,
+    disabled: false,
     name: "Paper",
-    component: Document,
-  },
-  {
-    disabled: true,
-    name: "中译版",
+    link: "#",
     component: Document,
   },
   {
     disabled: false,
     name: "Code",
-    link: "https://github.com/JunyaoHu/academic-project-page-template-vue",
+    link: "#",
     component: Files,
   },
   {
     disabled: false,
-    name: "Demo",
-    link: "https://junyaohu.github.io/academic-project-page-template-vue",
-    component: MagicStick,
-  },
-  {
-    disabled: true,
-    name: "Poster",
-    component: Picture,
-  },
-  {
-    disabled: true,
-    name: "Slide",
+    name: "Dataset",
+    link: "#",
     component: DataAnalysis,
   },
   {
     disabled: false,
-    name: "Video (减论)",
-    link: "https://www.bilibili.com/video/BV15XkgYiE73/",
-    component: Film,
+    name: "Model",
+    link: "#",
+    component: MagicStick,
   },
   {
     disabled: false,
-    name: "Video (Tutorial)",
-    link: "https://www.bilibili.com/video/BV1oUrfYzEqZ",
-    component: Film,
+    name: "BibTeX",
+    link: "#bibtex",
+    component: Document,
   },
 ]
 
@@ -128,9 +127,9 @@ const buttons = [
   <div>
 
     <!-- 最新消息提示 -->
-    <el-row justify="center">
+    <el-row v-if="news" justify="center">
       <el-col :span="24">
-        <el-alert title="🔥 This template is still under development." type="success" />
+        <el-alert :title="news" type="success" />
       </el-col>
     </el-row>
 
@@ -290,10 +289,8 @@ const buttons = [
 }
 
 .logo {
-  width: 150px; 
-  height: 150px;
-  border-radius: 50%;
-  box-shadow: #ced3dc 0px 0px 3px 2px;
+  width: clamp(280px, 60%, 540px);
+  height: auto;
   margin-top: 40px;
 }
 

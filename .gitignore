@@ -14,6 +14,9 @@ dist-ssr
 coverage
 *.local
 
+# Local-only source files (figures' PDFs, paper, icon originals)
+_source/
+
 /cypress/videos/
 /cypress/screenshots/
 

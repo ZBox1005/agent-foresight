@@ -1,34 +1,24 @@
 <script lang="ts" setup>
 
 import { ElIcon } from 'element-plus'
-import { HomeFilled, SuccessFilled } from '@element-plus/icons-vue'
-
-// 个人主页
-const home = {
-    name: "My Blog",
-    link: "https://junyaohu.github.io/",
-}
+import { SuccessFilled } from '@element-plus/icons-vue'
 
 // 项目主页
 const logo = {
-    name: "Template",
+    name: "AgentForesight",
     link: "#",
 }
 
 // 右侧更多菜单
 const more_paper = {
-    "ExtDM": {
-        name: "ExtDM - CVPR 2024",
-        link: "https://zzcheng.top/ExtDM/",
+    "Paper": {
+        name: "Paper (coming soon)",
+        link: "#",
     },
-    "MPOT": {
-        name: "MPOT - ICCV 2023",
-        link: "https://zzcheng.top/MPOT/",
+    "Code": {
+        name: "Code (coming soon)",
+        link: "#",
     },
-    "ControlNet": {
-        name: "ControlNet - ICCV 2023",
-        link: "https://github.com/lllyasviel/ControlNet",
-    }
 }
 
 </script>
@@ -44,12 +34,6 @@ const more_paper = {
         mode="horizontal"
         :ellipsis="false"
     >
-        <!-- 个人主页 -->
-        <el-menu-item index="0" >
-            <el-icon :size="20"><HomeFilled /></el-icon>
-            <a :href=home.link>{{ home.name }} </a>
-        </el-menu-item>
-        
         <!-- 项目主页 -->
         <el-menu-item index="1">
             <el-icon :size="20"><SuccessFilled /></el-icon>
@@ -60,13 +44,10 @@ const more_paper = {
         <el-sub-menu index="2">
             <template #title>More</template>
             <el-menu-item index="2-1">
-                <a :href=more_paper.ExtDM.link>{{ more_paper.ExtDM.name }}</a>
+                <a :href=more_paper.Paper.link>{{ more_paper.Paper.name }}</a>
             </el-menu-item>
             <el-menu-item index="2-2">
-                <a :href=more_paper.MPOT.link>{{ more_paper.MPOT.name }}</a>
-            </el-menu-item>
-            <el-menu-item index="2-3">
-                <a :href=more_paper.ControlNet.link>{{ more_paper.ControlNet.name }}</a>
+                <a :href=more_paper.Code.link>{{ more_paper.Code.name }}</a>
             </el-menu-item>
         </el-sub-menu>
 
@@ -103,7 +84,7 @@ const more_paper = {
 <style scoped>
 
 /* 水平导航左右分区 */
-.el-menu--horizontal > .el-menu-item:nth-child(2) {
+.el-menu--horizontal > .el-menu-item:nth-child(1) {
     margin-right: auto;
 }
 

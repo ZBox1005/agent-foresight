@@ -10,23 +10,24 @@ import remarkGfm from 'remark-gfm';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    mdx({
-      jsxImportSource: 'vue',
-      remarkPlugins: [
-        remarkMath,
-        remarkGfm,
-      ],
-      rehypePlugins: [
-        rehypeKatex,
-      ],
-    }),
-  ],
-  base:'agent-foresight',
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  },
+    plugins: [
+        vue(),
+        mdx({
+            jsxImportSource: 'vue',
+            remarkPlugins: [
+                remarkMath,
+                remarkGfm,
+            ],
+            rehypePlugins: [
+                rehypeKatex,
+            ],
+        }),
+    ],
+    base: '/agent-foresight/',
+    resolve: {
+        alias: {
+            '@': fileURLToPath(new URL('./src',
+                import.meta.url))
+        }
+    },
 })
