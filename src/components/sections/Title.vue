@@ -129,7 +129,7 @@ const buttons = [
 
     <!-- 文章logo -->
     <el-row v-if="logo" justify="center">
-      <el-image :src="logo" class="logo" fit="cover" />
+      <el-image :src="logo" class="logo" fit="contain" />
     </el-row>
 
     <!-- 文章标题 -->
@@ -201,9 +201,10 @@ const buttons = [
 /* 文章标题字体、字间距、居中排布、字号 */
 .paper-title {
   font-family: "MyFont", Verdana, sans-serif;
-  letter-spacing: 2px;
-  font-size: 42px;
-  margin: 32px;
+  letter-spacing: 1px;
+  font-size: 38px;
+  line-height: 1.25;
+  margin: 8px 0 24px;
   text-align: center;
 }
 
@@ -302,7 +303,8 @@ const buttons = [
 }
 
 .logo {
-  width: clamp(280px, 60%, 540px);
+  width: 520px;
+  max-width: 90%;
   height: auto;
   margin-top: 40px;
 }
