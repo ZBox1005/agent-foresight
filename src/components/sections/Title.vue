@@ -65,7 +65,7 @@ const addresses = [
   },
   {
     address_flag: "2",
-    name: "University of Texas at Austin",
+    name: "The University of Texas at Austin",
     icon: "resources/ut_logo.png",
     homepage: "https://www.utexas.edu/"
   },
