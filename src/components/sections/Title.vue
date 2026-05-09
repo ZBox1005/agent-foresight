@@ -79,7 +79,7 @@ const addresses = [
 
 // 共一和通讯提示
 const con_and_corresponding_author =
-  "*: Corresponding Author."
+  "* Corresponding Author."
 
 // 最新消息
 const news = ""
@@ -257,11 +257,10 @@ const buttons = [
   box-shadow: #b7b7b7 0px 0px 3px 1px;
 }
 
-/* 机构 logo（保持原 logo 比例，避免被圆形裁剪） */
+/* 机构 logo（图片源已 pad 成方形，固定 36×36 渲染保证三者大小一致） */
 .address-logo {
   height: 36px;
-  width: auto;
-  max-width: 80px;
+  width: 36px;
   object-fit: contain;
   margin-right: 8px;
   vertical-align: middle;

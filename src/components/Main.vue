@@ -6,7 +6,7 @@ import Motivation from './sections/Motivation.vue'
 import Method from './sections/Method.vue'
 import Results from './sections/Results.vue'
 import Analysis from './sections/Analysis.vue'
-// import CaseStudy from './sections/CaseStudy.vue'  // 暂关闭
+import CaseStudy from './sections/CaseStudy.vue'
 import BibTeX from './sections/BibTeX.vue'
 // import Comment from './sections/Comment.vue'  // 暂关闭，启用前需先部署 Twikoo 后端
 
@@ -33,6 +33,7 @@ export default {
     Method,
     Results,
     Analysis,
+    CaseStudy,
     BibTeX,
   }
 }
@@ -46,5 +47,6 @@ export default {
   <Method/>
   <Results/>
   <Analysis/>
+  <CaseStudy/>
   <BibTeX/>
 </template>
