@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import { ElIcon } from 'element-plus'
-import { Document, Files } from '@element-plus/icons-vue'
+import { Document, Notebook } from '@element-plus/icons-vue'
 
 // logo地址，没有则置为""即可
 const logo = 'resources/logo_full.png'
@@ -98,20 +98,20 @@ const buttons = [
   {
     disabled: false,
     name: "Code",
-    link: "#",
-    component: Files,
+    link: "https://github.com/ZBox1005/AgentForesight",
+    iconImg: "resources/github_logo.svg",
   },
   {
     disabled: false,
     name: "Dataset",
-    link: "#",
+    link: "https://huggingface.co/datasets/ZBox008003/AFTraj",
     iconImg: "resources/huggingface_logo.png",
   },
   {
     disabled: false,
     name: "BibTeX",
     link: "#bibtex",
-    component: Document,
+    component: Notebook,
   },
 ]
 
