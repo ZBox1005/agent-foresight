@@ -164,7 +164,7 @@ const buttons = [
     <el-row justify="center">
       <a v-for="address in addresses" :key="address.address_flag" :href="address.homepage">
         <el-button class="title-button" type="primary" text>
-          <el-avatar v-if="address.icon" :size="40" :src="address.icon" />
+          <img v-if="address.icon" class="address-logo" :src="address.icon" :alt="address.name" />
           <span class="address">
             <sup v-if="address.address_flag" class="address_sup">{{ address.address_flag }}</sup>{{ address.name }}
           </span>
@@ -255,6 +255,16 @@ const buttons = [
 .el-avatar {
   margin-right: 6px;
   box-shadow: #b7b7b7 0px 0px 3px 1px;
+}
+
+/* 机构 logo（保持原 logo 比例，避免被圆形裁剪） */
+.address-logo {
+  height: 36px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
 /* 共一和通讯文字属性 */
