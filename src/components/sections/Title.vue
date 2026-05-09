@@ -257,10 +257,12 @@ const buttons = [
   box-shadow: #b7b7b7 0px 0px 3px 1px;
 }
 
-/* 机构 logo（图片源已 pad 成方形，固定 36×36 渲染保证三者大小一致） */
+/* 机构 logo：高度统一 36px，宽度跟随原比例上限 50px，
+   保证方形 logo 显示 36×36，宽 logo（如 Purdue）显示 50×27，视觉面积接近 */
 .address-logo {
   height: 36px;
-  width: 36px;
+  width: auto;
+  max-width: 50px;
   object-fit: contain;
   margin-right: 8px;
   vertical-align: middle;
