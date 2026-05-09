@@ -4,7 +4,7 @@
 <template>
   <div>
     <el-row justify="center">
-      <el-col :xs="24" :sm="22" :md="20" :lg="18" :xl="16">
+      <el-col :xs="24" :sm="20" :md="16" :lg="12" :xl="12">
         <el-container class="video-container">
           <video autoplay muted loop playsinline preload="auto" controls>
             <source src="/resources/AgentForesight_gif.mp4" type="video/mp4">

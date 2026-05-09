@@ -17,7 +17,7 @@ defineProps({
     </el-row>
 
     <el-row justify="center">
-      <el-col :xs="24" :sm="22" :md="20" :lg="18" :xl="16">
+      <el-col :xs="24" :sm="20" :md="16" :lg="12" :xl="12">
         <el-image :src="src" :alt="alt" fit="contain" class="figure" />
         <p class="caption">
           <slot name="caption">{{ captionText }}</slot>
