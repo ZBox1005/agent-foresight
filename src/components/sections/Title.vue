@@ -60,20 +60,20 @@ const addresses = [
   {
     address_flag: "1",
     name: "Rutgers University",
-    icon: "resources/ru_icon.png",
+    icon: "resources/ru_logo.png",
     homepage: "https://www.rutgers.edu/"
   },
   {
     address_flag: "2",
     name: "University of Texas at Austin",
-    icon: "resources/uta_icon.png",
+    icon: "resources/ut_logo.png",
     homepage: "https://www.utexas.edu/"
   },
   {
     address_flag: "3",
-    name: "Rochester Institute of Technology",
-    icon: "resources/rit_icon.png",
-    homepage: "https://www.rit.edu/"
+    name: "Purdue University",
+    icon: "resources/purdue_logo.png",
+    homepage: "https://www.purdue.edu/"
   },
 ]
 
@@ -150,7 +150,7 @@ const buttons = [
 
     <!-- 作者名单 -->
     <el-row justify="center">
-      <a :href=author.homepage v-for="author in authors">
+      <a v-for="author in authors" :key="author.name" :href="author.homepage">
         <el-button class="title-button" type="primary" text>
           <el-avatar v-if="author.icon" :size="40" :src="author.icon" />
           <span class="author">
@@ -162,7 +162,7 @@ const buttons = [
 
     <!-- 地址名单 -->
     <el-row justify="center">
-      <a :href=address.homepage v-for="address in addresses">
+      <a v-for="address in addresses" :key="address.address_flag" :href="address.homepage">
         <el-button class="title-button" type="primary" text>
           <el-avatar v-if="address.icon" :size="40" :src="address.icon" />
           <span class="address">
@@ -178,7 +178,7 @@ const buttons = [
     </el-row>
 
     <!-- 强调内容 -->
-    <el-row justify="center" class="emphasis" v-for="emphasis in emphases">
+    <el-row v-for="(emphasis, i) in emphases" :key="i" justify="center" class="emphasis">
         {{ emphasis }}
     </el-row>
 
@@ -186,7 +186,7 @@ const buttons = [
     <el-row justify="center" style="margin-bottom: 20px;">
       <el-col :span="20">
         <el-row justify="center">
-          <a :href=button.link v-for="button in buttons">
+          <a v-for="button in buttons" :key="button.name" :href="button.link">
             <el-button class="guidance-button" size="default" :color="btn_color" :disabled="button.disabled" round>
               <el-icon :size="18">
                 <component :is="button.component" />
