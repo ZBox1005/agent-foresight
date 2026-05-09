@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import { ElIcon } from 'element-plus'
-import { Document, Files, MagicStick, Picture, DataAnalysis, Film } from '@element-plus/icons-vue'
+import { Document, Files } from '@element-plus/icons-vue'
 
 // logo地址，没有则置为""即可
 const logo = 'resources/logo_full.png'
@@ -105,13 +105,7 @@ const buttons = [
     disabled: false,
     name: "Dataset",
     link: "#",
-    component: DataAnalysis,
-  },
-  {
-    disabled: false,
-    name: "Model",
-    link: "#",
-    component: MagicStick,
+    iconImg: "resources/huggingface_logo.png",
   },
   {
     disabled: false,
@@ -189,7 +183,8 @@ const buttons = [
           <a v-for="button in buttons" :key="button.name" :href="button.link">
             <el-button class="guidance-button" size="default" :color="btn_color" :disabled="button.disabled" round>
               <el-icon :size="18">
-                <component :is="button.component" />
+                <component v-if="button.component" :is="button.component" />
+                <img v-else-if="button.iconImg" :src="button.iconImg" :alt="button.name" class="btn-icon-img" />
               </el-icon>
               <span class="btn-text">{{ button.name }}</span>
             </el-button>
@@ -289,6 +284,13 @@ const buttons = [
 .btn-text {
   font-size: 18px;
   color: #ffffff;
+}
+
+/* 引导材料按钮图标（用图片替代 element 图标时） */
+.btn-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .el-alert {
