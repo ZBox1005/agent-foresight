@@ -27,13 +27,13 @@ const authors = [
     name: "Boxuan Zhang",
     icon: "",
     homepage: "https://zbox1005.github.io/",
-    address_flag: "1"
+    address_flag: "1,*"
   },
   {
     name: "Jianing Zhu",
     icon: "",
     homepage: "https://zfancy.github.io/",
-    address_flag: "2"
+    address_flag: "2,*"
   },
   {
     name: "Zeru Shi",
@@ -51,7 +51,7 @@ const authors = [
     name: "Ruixiang Tang",
     icon: "",
     homepage: "https://www.ruixiangtang.net/",
-    address_flag: "1,*"
+    address_flag: "1,†"
   },
 ]
 
@@ -79,7 +79,7 @@ const addresses = [
 
 // 共一和通讯提示
 const con_and_corresponding_author =
-  "* Corresponding Author."
+  "*: Equal Contribution.  †: Corresponding Author."
 
 // 最新消息
 const news = ""
