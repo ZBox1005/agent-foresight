@@ -92,7 +92,7 @@ const buttons = [
   {
     disabled: false,
     name: "Paper",
-    link: "#",
+    link: "https://arxiv.org/abs/2605.08715",
     component: Document,
   },
   {

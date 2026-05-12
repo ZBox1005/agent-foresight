@@ -4,9 +4,10 @@ export default {
     return {
       bibtex: [
         "@article{zhang2026agentforesight,",
-        "    title={AgentForesight: Online Auditing for Early Failure Prediction in Multi-Agent Systems},",
-        "    author={Zhang, Boxuan and Zhu, Jianing and Shi, Zeru and Liu, Dongfang and Tang, Ruixiang},",
-        "    year={2026}",
+        "  title={AgentForesight: Online Auditing for Early Failure Prediction in Multi-Agent Systems},",
+        "  author={Zhang, Boxuan and Zhu, Jianing and Shi, Zeru and Liu, Dongfang and Tang, Ruixiang},",
+        "  journal={arXiv preprint arXiv:2605.08715},",
+        "  year={2026}",
         "}",
       ],
     }
