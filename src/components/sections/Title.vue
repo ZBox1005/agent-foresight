@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import { ElIcon } from 'element-plus'
-import { Document, Notebook } from '@element-plus/icons-vue'
+import { Notebook } from '@element-plus/icons-vue'
 
 // logo地址，没有则置为""即可
 const logo = 'resources/logo_full.png'
@@ -93,7 +93,7 @@ const buttons = [
     disabled: false,
     name: "Paper",
     link: "https://arxiv.org/abs/2605.08715",
-    component: Document,
+    iconImg: "resources/arxiv_logo.svg",
   },
   {
     disabled: false,
