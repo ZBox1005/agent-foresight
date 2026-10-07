@@ -1,4 +1,16 @@
-# academic-project-page-template-vue
+# AgentForesight project page
+
+The published homepage is `index.html`, with its runtime and assets in
+`public/support.js`, `public/hero/`, and `public/resources/`. Run `npm run dev`
+to preview it locally or `npm run build` to generate `dist/`. Pushing `main`
+triggers the existing GitHub Actions workflow, which deploys `dist/` to
+`gh-pages`.
+
+The original Vue template remains under `src/` for reference, but it is not
+loaded by the current homepage. The page runtime loads React, ReactDOM, and
+Babel from unpkg in visitors' browsers.
+
+## Original Vue template documentation
 
 ![img](https://github.com/user-attachments/assets/0b6084a8-ad9c-4a1b-81b2-1f9591c7eabb)
 
