@@ -12,12 +12,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Nunito:wght@600;700;800;900&amp;display=swap">
-  <style>html,body{margin:0;height:100%;background:#FBFCFE;overflow:hidden}a{color:#0096A7}a:hover{color:#0B0D5B}</style>
+  <style>html,body{margin:0;height:100%;background:#FBFCFE;overflow:hidden}a{color:#0096A7}a:hover{color:#0B0D5B}
+  [data-om-starter="animations-v3"]{background:#FBFCFE !important}
+  [data-om-starter="animations-v3"] [data-omelette-chrome]{display:none !important}
+  [data-om-starter="animations-v3"] > div > svg{box-shadow:none !important}</style>
   <script>window.OM_SCENES = '[{"name":"Title","dur":3,"desc":"Logo and paper title, then the logo docks to the corner"},{"name":"Task","dur":3.5,"desc":"The math task types in and the three-agent team docks into the roster"},{"name":"PostHoc","dur":9,"desc":"The run executes unwatched and fails; only afterwards is the error traced to Step 6"},{"name":"Rewind","dur":2.5,"desc":"The run rewinds and AgentForesight joins as the online auditor"},{"name":"Audit","dur":10,"desc":"Steps 1-5 are audited prefix by prefix with CONTINUE verdicts; Step 6 triggers ALARM"},{"name":"Alarm","dur":5,"desc":"The verdict names where, who and what; the run halts before Step 7"},{"name":"Recover","dur":5.5,"desc":"The fix is applied, Steps 7-8 pass and the correct answer earns the trophy"},{"name":"Outro","dur":6.5,"desc":"Post-hoc vs AgentForesight side by side, then back to the title for the loop"}]';</script>
   <script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
   <script>window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{"motionEditor":false,"captions":true,"camera":"Dynamic"}/*EDITMODE-END*/;</script>
 </helmet>
-<div style="position:fixed;left:0;top:0;width:100%;height:calc(100% + 44px);background:#FBFCFE">
+<div style="position:fixed;left:-4px;right:-4px;top:-26px;bottom:-26px;background:#FBFCFE">
   <x-import component-from-global-scope="AFVideo" from="./animations-v3.jsx ./tweaks-panel.jsx ./af-video.jsx" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
 </div>
 </x-dc>

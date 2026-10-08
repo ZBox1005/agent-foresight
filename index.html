@@ -81,22 +81,58 @@
 </header>
 
 <sc-if value="{{ showHL }}" hint-placeholder-val="{{ true }}">
-  <section style="padding:40px 24px 0">
-    <div ref="{{ refs.highlights }}" style="max-width:1080px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap:14px; opacity:{{ rv.highlights.o }}; transform:{{ rv.highlights.t }}; transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1)">
-      <div style="background:#FFFFFF; border:1px solid #E5E8EC; border-radius:18px; padding:22px 24px; display:flex; flex-direction:column; gap:6px">
-        <div style="font:900 44px/1 'Nunito',sans-serif; color:#0B0D5B; font-variant-numeric:tabular-nums; letter-spacing:-0.01em">{{ hl1 }}</div>
-        <div style="margin-top:6px; font:800 16px/1.35 'Nunito',sans-serif; color:#1D2340">Exact-F1 on AFTraj-2K</div>
-        <div style="font:600 14px/1.4 'Nunito',sans-serif; color:#5F6880">+19.88 over DeepSeek-V4-Pro, the strongest proprietary baseline</div>
-      </div>
-      <div style="background:#FFFFFF; border:1px solid #E5E8EC; border-radius:18px; padding:22px 24px; display:flex; flex-direction:column; gap:6px">
-        <div style="font:900 44px/1 'Nunito',sans-serif; color:#0B0D5B; font-variant-numeric:tabular-nums; letter-spacing:-0.01em">{{ hl2 }}</div>
-        <div style="margin-top:6px; font:800 16px/1.35 'Nunito',sans-serif; color:#1D2340">Lower step-localization error</div>
-        <div style="font:600 14px/1.4 'Nunito',sans-serif; color:#5F6880">Overall ASS 0.59, down from 1.77</div>
-      </div>
-      <div style="background:#FFFFFF; border:1px solid #E5E8EC; border-radius:18px; padding:22px 24px; display:flex; flex-direction:column; gap:6px">
-        <div style="font:900 44px/1 'Nunito',sans-serif; color:#0B0D5B; font-variant-numeric:tabular-nums; letter-spacing:-0.01em">{{ hl3 }}</div>
-        <div style="margin-top:6px; font:800 16px/1.35 'Nunito',sans-serif; color:#1D2340">False-alarm rate on safe runs</div>
-        <div style="font:600 14px/1.4 'Nunito',sans-serif; color:#5F6880">The only auditor inside the deployable region</div>
+  <section style="padding:76px 24px 0">
+    <div style="max-width:1080px; margin:0 auto">
+      <h2 style="margin:0 0 36px; text-align:center; font:900 clamp(23px, 2.6vw, 30px)/1.2 'Nunito',sans-serif; color:#0B0D5B; letter-spacing:-0.005em">Agent<span style="color:#0096A7">Foresight</span> at a glance</h2>
+      <div ref="{{ refs.highlights }}" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap:40px 32px">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap:40px 32px">
+          <a href="#motivation" onClick="{{ glGo.motivation }}" title="Jump to Motivation" style="display:flex; flex-direction:column; color:#0B0D5B; transition:color .25s" style-hover="color:#3F47B3">
+            <div style="position:relative; height:12px">
+              <div style="position:absolute; left:0; right:0; top:5px; height:2px; border-radius:1px; background:#3F47B3; transform-origin:left center; transform:scaleX({{ gl.s }}); transition:transform 1s cubic-bezier(.2,.7,.2,1) 0ms"></div>
+              <div style="position:absolute; left:0; top:0; width:12px; height:12px; border-radius:50%; background:#3F47B3; box-shadow:0 0 0 4px #FBFCFE; transform:scale({{ gl.s }}); transition:transform .5s cubic-bezier(.3,1.6,.5,1) 0ms"></div>
+            </div>
+            <div style="margin-top:24px; opacity:{{ gl.o }}; transform:{{ gl.t }}; transition:opacity .7s ease 120ms, transform .7s cubic-bezier(.2,.7,.2,1) 120ms">
+              <div style="font:900 54px/1 'Nunito',sans-serif; letter-spacing:-0.02em">Online</div>
+              <div style="margin-top:10px; font:800 17px/1.3 'Nunito',sans-serif; color:#3F47B3">auditing</div>
+              <p style="margin:8px 0 0; font:500 15px/1.55 'Nunito',sans-serif; color:#5F6880; text-wrap:pretty">Every prefix is judged while the run unfolds, before the failure is locked in.</p>
+            </div>
+          </a>
+          <a href="#method" onClick="{{ glGo.method }}" title="Jump to Method" style="display:flex; flex-direction:column; color:#0B0D5B; transition:color .25s" style-hover="color:#007C8A">
+            <div style="position:relative; height:12px">
+              <div style="position:absolute; left:0; right:0; top:5px; height:2px; border-radius:1px; background:#0096A7; transform-origin:left center; transform:scaleX({{ gl.s }}); transition:transform 1s cubic-bezier(.2,.7,.2,1) 180ms"></div>
+              <div style="position:absolute; left:0; top:0; width:12px; height:12px; border-radius:50%; background:#0096A7; box-shadow:0 0 0 4px #FBFCFE; transform:scale({{ gl.s }}); transition:transform .5s cubic-bezier(.3,1.6,.5,1) 180ms"></div>
+            </div>
+            <div style="margin-top:24px; opacity:{{ gl.o }}; transform:{{ gl.t }}; transition:opacity .7s ease 300ms, transform .7s cubic-bezier(.2,.7,.2,1) 300ms">
+              <div style="font:900 54px/1 'Nunito',sans-serif; letter-spacing:-0.02em; font-variant-numeric:tabular-nums">2,272</div>
+              <div style="margin-top:10px; font:800 17px/1.3 'Nunito',sans-serif; color:#007C8A">trajectories</div>
+              <p style="margin:8px 0 0; font:500 15px/1.55 'Nunito',sans-serif; color:#5F6880; text-wrap:pretty">Curated in AFTraj-2K across Coding, Math, and Agentic tasks.</p>
+            </div>
+          </a>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap:40px 32px">
+          <a href="#results" onClick="{{ glGo.results }}" title="Jump to Main Results" style="display:flex; flex-direction:column; color:#0B0D5B; transition:color .25s" style-hover="color:#3F47B3">
+            <div style="position:relative; height:12px">
+              <div style="position:absolute; left:0; right:0; top:5px; height:2px; border-radius:1px; background:#0B0D5B; transform-origin:left center; transform:scaleX({{ gl.s }}); transition:transform 1s cubic-bezier(.2,.7,.2,1) 360ms"></div>
+              <div style="position:absolute; left:0; top:0; width:12px; height:12px; border-radius:50%; background:#0B0D5B; box-shadow:0 0 0 4px #FBFCFE; transform:scale({{ gl.s }}); transition:transform .5s cubic-bezier(.3,1.6,.5,1) 360ms"></div>
+            </div>
+            <div style="margin-top:24px; opacity:{{ gl.o }}; transform:{{ gl.t }}; transition:opacity .7s ease 480ms, transform .7s cubic-bezier(.2,.7,.2,1) 480ms">
+              <div style="font:900 54px/1 'Nunito',sans-serif; letter-spacing:-0.02em; font-variant-numeric:tabular-nums">+19.9</div>
+              <div style="margin-top:10px; font:800 17px/1.3 'Nunito',sans-serif; color:#0B0D5B">Exact-F1</div>
+              <p style="margin:8px 0 0; font:500 15px/1.55 'Nunito',sans-serif; color:#5F6880; text-wrap:pretty">Over <span style="white-space:nowrap">DeepSeek-V4-Pro</span>, the strongest proprietary baseline.</p>
+            </div>
+          </a>
+          <a href="#analysis" onClick="{{ glGo.analysis }}" title="Jump to Analysis" style="display:flex; flex-direction:column; color:#0B0D5B; transition:color .25s" style-hover="color:#2E7D32">
+            <div style="position:relative; height:12px">
+              <div style="position:absolute; left:0; right:0; top:5px; height:2px; border-radius:1px; background:#49B74B; transform-origin:left center; transform:scaleX({{ gl.s }}); transition:transform 1s cubic-bezier(.2,.7,.2,1) 540ms"></div>
+              <div style="position:absolute; left:0; top:0; width:12px; height:12px; border-radius:50%; background:#49B74B; box-shadow:0 0 0 4px #FBFCFE; transform:scale({{ gl.s }}); transition:transform .5s cubic-bezier(.3,1.6,.5,1) 540ms"></div>
+            </div>
+            <div style="margin-top:24px; opacity:{{ gl.o }}; transform:{{ gl.t }}; transition:opacity .7s ease 660ms, transform .7s cubic-bezier(.2,.7,.2,1) 660ms">
+              <div style="font:900 54px/1 'Nunito',sans-serif; letter-spacing:-0.02em; font-variant-numeric:tabular-nums">2.37%</div>
+              <div style="margin-top:10px; font:800 17px/1.3 'Nunito',sans-serif; color:#2E7D32">false-alarm rate</div>
+              <p style="margin:8px 0 0; font:500 15px/1.55 'Nunito',sans-serif; color:#5F6880; text-wrap:pretty">On safe runs, the only auditor inside the deployable region.</p>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -143,13 +179,19 @@
     </div>
     <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px">
       <div style="display:inline-flex; padding:4px; gap:4px; border-radius:999px; background:#EEF0F4">
-        <button onClick="{{ mot.setBoth }}" style="border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ mot.both.bg }}; color:{{ mot.both.color }}; box-shadow:{{ mot.both.sh }}; transition:background .2s, color .2s, box-shadow .2s">Both</button>
-        <button onClick="{{ mot.setA }}" style="border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ mot.a.bg }}; color:{{ mot.a.color }}; box-shadow:{{ mot.a.sh }}; transition:background .2s, color .2s, box-shadow .2s">(a) Post-hoc</button>
-        <button onClick="{{ mot.setB }}" style="border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ mot.b.bg }}; color:{{ mot.b.color }}; box-shadow:{{ mot.b.sh }}; transition:background .2s, color .2s, box-shadow .2s">(b) Online</button>
+        <button onClick="{{ mot.setBoth }}" style="position:relative; border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ mot.both.bg }}; color:{{ mot.both.color }}; box-shadow:{{ mot.both.sh }}; transition:background .2s, color .2s, box-shadow .2s">Both<span style="position:absolute; left:14px; right:14px; bottom:3px; height:2px; border-radius:1px; background:#E5E8EC; overflow:hidden; opacity:{{ mot.both.fo }}; transition:opacity .3s"><span style="display:block; height:100%; width:{{ mot.both.fw }}; background:#0B0D5B; transition:{{ mot.both.ftr }}"></span></span></button>
+        <button onClick="{{ mot.setA }}" style="position:relative; border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ mot.a.bg }}; color:{{ mot.a.color }}; box-shadow:{{ mot.a.sh }}; transition:background .2s, color .2s, box-shadow .2s">(a) Post-hoc<span style="position:absolute; left:14px; right:14px; bottom:3px; height:2px; border-radius:1px; background:#E5E8EC; overflow:hidden; opacity:{{ mot.a.fo }}; transition:opacity .3s"><span style="display:block; height:100%; width:{{ mot.a.fw }}; background:#5A6377; transition:{{ mot.a.ftr }}"></span></span></button>
+        <button onClick="{{ mot.setB }}" style="position:relative; border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ mot.b.bg }}; color:{{ mot.b.color }}; box-shadow:{{ mot.b.sh }}; transition:background .2s, color .2s, box-shadow .2s">(b) Online<span style="position:absolute; left:14px; right:14px; bottom:3px; height:2px; border-radius:1px; background:#E5E8EC; overflow:hidden; opacity:{{ mot.b.fo }}; transition:opacity .3s"><span style="display:block; height:100%; width:{{ mot.b.fw }}; background:#3F47B3; transition:{{ mot.b.ftr }}"></span></span></button>
       </div>
-      <button onClick="{{ openMot }}" style="border:1.5px solid #D9DDE4; background:#FFFFFF; cursor:zoom-in; padding:8px 14px; border-radius:999px; font:800 13.5px/1 'Nunito',sans-serif; color:#5F6880; transition:color .2s, border-color .2s" style-hover="color:#0B0D5B; border-color:#0B0D5B">⤢ Enlarge figure</button>
+      <div style="display:flex; flex-wrap:wrap; gap:8px">
+        <button onClick="{{ mot.toggle }}" style="border:1.5px solid #D9DDE4; background:#FFFFFF; cursor:pointer; padding:8px 14px; border-radius:999px; font:800 13.5px/1 'Nunito',sans-serif; color:#5F6880; transition:color .2s, border-color .2s" style-hover="color:#0B0D5B; border-color:#0B0D5B">
+          <sc-if value="{{ mot.auto }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:center; gap:7px"><svg viewBox="0 0 10 10" style="width:10px; height:10px; display:block"><rect x="1.5" y="1" width="2.4" height="8" rx="0.6" style="fill:currentColor"></rect><rect x="6.1" y="1" width="2.4" height="8" rx="0.6" style="fill:currentColor"></rect></svg>Pause</span></sc-if>
+          <sc-if value="{{ mot.manual }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex; align-items:center; gap:7px"><svg viewBox="0 0 10 10" style="width:10px; height:10px; display:block"><path d="M2 1.2v7.6L8.6 5z" style="fill:currentColor"></path></svg>Auto-play</span></sc-if>
+        </button>
+        <button onClick="{{ openMot }}" style="border:1.5px solid #D9DDE4; background:#FFFFFF; cursor:zoom-in; padding:8px 14px; border-radius:999px; font:800 13.5px/1 'Nunito',sans-serif; color:#5F6880; transition:color .2s, border-color .2s" style-hover="color:#0B0D5B; border-color:#0B0D5B">⤢ Enlarge figure</button>
+      </div>
     </div>
-    <div style="margin-top:14px; background:#FFFFFF; border:1px solid #E5E8EC; border-radius:20px; padding:14px; box-shadow:0 14px 34px rgba(20,30,70,0.06)">
+    <div ref="{{ figRefs.mot }}" style="margin-top:14px; background:#FFFFFF; border:1px solid #E5E8EC; border-radius:20px; padding:14px; box-shadow:0 14px 34px rgba(20,30,70,0.06)">
       <div onClick="{{ openMot }}" style="position:relative; cursor:zoom-in; border-radius:12px; overflow:hidden">
         <img src="resources/motivation_hd.webp" alt="Comparison of post-hoc failure attribution and online auditing" style="display:block; width:100%; height:auto">
         <div style="position:absolute; left:0; right:0; top:0; height:48.7%; background:rgba(251,252,254,0.82); opacity:{{ mot.dimTop }}; transition:opacity .35s"></div>
@@ -180,13 +222,19 @@
     </div>
     <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px">
       <div style="display:inline-flex; padding:4px; gap:4px; border-radius:999px; background:#EEF0F4">
-        <button onClick="{{ met.setBoth }}" style="border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ met.both.bg }}; color:{{ met.both.color }}; box-shadow:{{ met.both.sh }}; transition:background .2s, color .2s, box-shadow .2s">Both</button>
-        <button onClick="{{ met.setA }}" style="border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ met.a.bg }}; color:{{ met.a.color }}; box-shadow:{{ met.a.sh }}; transition:background .2s, color .2s, box-shadow .2s">(a) AFTraj-2K</button>
-        <button onClick="{{ met.setB }}" style="border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ met.b.bg }}; color:{{ met.b.color }}; box-shadow:{{ met.b.sh }}; transition:background .2s, color .2s, box-shadow .2s">(b) Training</button>
+        <button onClick="{{ met.setBoth }}" style="position:relative; border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ met.both.bg }}; color:{{ met.both.color }}; box-shadow:{{ met.both.sh }}; transition:background .2s, color .2s, box-shadow .2s">Both<span style="position:absolute; left:14px; right:14px; bottom:3px; height:2px; border-radius:1px; background:#E5E8EC; overflow:hidden; opacity:{{ met.both.fo }}; transition:opacity .3s"><span style="display:block; height:100%; width:{{ met.both.fw }}; background:#0B0D5B; transition:{{ met.both.ftr }}"></span></span></button>
+        <button onClick="{{ met.setA }}" style="position:relative; border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ met.a.bg }}; color:{{ met.a.color }}; box-shadow:{{ met.a.sh }}; transition:background .2s, color .2s, box-shadow .2s">(a) AFTraj-2K<span style="position:absolute; left:14px; right:14px; bottom:3px; height:2px; border-radius:1px; background:#E5E8EC; overflow:hidden; opacity:{{ met.a.fo }}; transition:opacity .3s"><span style="display:block; height:100%; width:{{ met.a.fw }}; background:#0096A7; transition:{{ met.a.ftr }}"></span></span></button>
+        <button onClick="{{ met.setB }}" style="position:relative; border:0; cursor:pointer; padding:8px 16px; border-radius:999px; font:800 14px/1 'Nunito',sans-serif; background:{{ met.b.bg }}; color:{{ met.b.color }}; box-shadow:{{ met.b.sh }}; transition:background .2s, color .2s, box-shadow .2s">(b) Training<span style="position:absolute; left:14px; right:14px; bottom:3px; height:2px; border-radius:1px; background:#E5E8EC; overflow:hidden; opacity:{{ met.b.fo }}; transition:opacity .3s"><span style="display:block; height:100%; width:{{ met.b.fw }}; background:#3F47B3; transition:{{ met.b.ftr }}"></span></span></button>
       </div>
-      <button onClick="{{ openMet }}" style="border:1.5px solid #D9DDE4; background:#FFFFFF; cursor:zoom-in; padding:8px 14px; border-radius:999px; font:800 13.5px/1 'Nunito',sans-serif; color:#5F6880; transition:color .2s, border-color .2s" style-hover="color:#0B0D5B; border-color:#0B0D5B">⤢ Enlarge figure</button>
+      <div style="display:flex; flex-wrap:wrap; gap:8px">
+        <button onClick="{{ met.toggle }}" style="border:1.5px solid #D9DDE4; background:#FFFFFF; cursor:pointer; padding:8px 14px; border-radius:999px; font:800 13.5px/1 'Nunito',sans-serif; color:#5F6880; transition:color .2s, border-color .2s" style-hover="color:#0B0D5B; border-color:#0B0D5B">
+          <sc-if value="{{ met.auto }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:center; gap:7px"><svg viewBox="0 0 10 10" style="width:10px; height:10px; display:block"><rect x="1.5" y="1" width="2.4" height="8" rx="0.6" style="fill:currentColor"></rect><rect x="6.1" y="1" width="2.4" height="8" rx="0.6" style="fill:currentColor"></rect></svg>Pause</span></sc-if>
+          <sc-if value="{{ met.manual }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex; align-items:center; gap:7px"><svg viewBox="0 0 10 10" style="width:10px; height:10px; display:block"><path d="M2 1.2v7.6L8.6 5z" style="fill:currentColor"></path></svg>Auto-play</span></sc-if>
+        </button>
+        <button onClick="{{ openMet }}" style="border:1.5px solid #D9DDE4; background:#FFFFFF; cursor:zoom-in; padding:8px 14px; border-radius:999px; font:800 13.5px/1 'Nunito',sans-serif; color:#5F6880; transition:color .2s, border-color .2s" style-hover="color:#0B0D5B; border-color:#0B0D5B">⤢ Enlarge figure</button>
+      </div>
     </div>
-    <div style="margin-top:14px; background:#FFFFFF; border:1px solid #E5E8EC; border-radius:20px; padding:14px; box-shadow:0 14px 34px rgba(20,30,70,0.06)">
+    <div ref="{{ figRefs.met }}" style="margin-top:14px; background:#FFFFFF; border:1px solid #E5E8EC; border-radius:20px; padding:14px; box-shadow:0 14px 34px rgba(20,30,70,0.06)">
       <div onClick="{{ openMet }}" style="position:relative; cursor:zoom-in; border-radius:12px; overflow:hidden">
         <img src="resources/pipeline_hd.webp" alt="AgentForesight pipeline: AFTraj-2K construction and coarse-to-fine training" style="display:block; width:100%; height:auto">
         <div style="position:absolute; top:0; bottom:0; left:0; width:68.75%; background:rgba(251,252,254,0.82); opacity:{{ met.dimL }}; transition:opacity .35s"></div>
@@ -525,7 +573,7 @@
   </div>
 </sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;videoSrc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero video&quot;},&quot;showHighlights&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;revealOnScroll&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;caseAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;videoSrc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero video&quot;},&quot;showHighlights&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;revealOnScroll&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;figureAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;caseAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
 const NAV = [['abstract', 'Abstract'], ['motivation', 'Motivation'], ['method', 'Method'], ['results', 'Results'], ['analysis', 'Analysis'], ['case-study', 'Case Study'], ['bibtex', 'BibTeX']];
 
 const TABLE = [
@@ -626,12 +674,16 @@ const LB = {
   case: ['resources/case_study.png', 'Case study comparing predictions from DeepSeek-V4-Pro, Gemini-3-Flash, and AgentForesight-7B'],
 };
 
+const FIG_SEQ = ['both', 'a', 'b'];
+const FIG_DWELL = { both: 6000, a: 4000, b: 4000 };
+
 class Component extends DCLogic {
   state = {
     seen: {}, active: '', progress: 0, scrolled: 0,
     motSel: 'both', motHov: null, metSel: 'both', metHov: null,
-    lb: null, copied: false, hov: -1, compact: false, hlP: 0,
+    lb: null, copied: false, hov: -1, compact: false,
     cs: { aud: 'af', k: 5, sub: 1, phase: 'done' }, typed: 9999, tour: false, played: {},
+    apv: { mot: { auto: true, w: 0, tr: 'none' }, met: { auto: true, w: 0, tr: 'none' } },
   };
   secRefs = {
     highlights: React.createRef(), abstract: React.createRef(), motivation: React.createRef(), method: React.createRef(),
@@ -639,6 +691,11 @@ class Component extends DCLogic {
   };
   navRef = React.createRef();
   plotRef = React.createRef();
+  figRefs = { mot: React.createRef(), met: React.createRef() };
+  ap = {
+    mot: { auto: true, inView: false, hover: false, t0: 0, rem: FIG_DWELL.both, tm: null, raf: 0 },
+    met: { auto: true, inView: false, hover: false, t0: 0, rem: FIG_DWELL.both, tm: null, raf: 0 },
+  };
   timers = [];
 
   componentDidMount() {
@@ -653,7 +710,7 @@ class Component extends DCLogic {
     window.addEventListener('keydown', this.onKey);
     this.onPrint = () => this.revealAll();
     window.addEventListener('beforeprint', this.onPrint);
-    this.mountT = setTimeout(() => { this.setupIO(); this.measure(); }, 80);
+    this.mountT = setTimeout(() => { this.setupIO(); this.setupFigAP(); this.measure(); }, 80);
   }
 
   componentWillUnmount() {
@@ -663,8 +720,10 @@ class Component extends DCLogic {
     window.removeEventListener('beforeprint', this.onPrint);
     if (this.io) this.io.disconnect();
     if (this.caseIO) this.caseIO.disconnect();
+    if (this.figIO) this.figIO.disconnect();
+    if (this.onVis) document.removeEventListener('visibilitychange', this.onVis);
+    ['mot', 'met'].forEach((k) => { clearTimeout(this.ap[k].tm); cancelAnimationFrame(this.ap[k].raf); });
     if (this.raf) cancelAnimationFrame(this.raf);
-    if (this.hlRaf) cancelAnimationFrame(this.hlRaf);
     clearTimeout(this.mountT);
     clearTimeout(this.copyT);
     clearTimeout(this.fallbackT);
@@ -674,7 +733,7 @@ class Component extends DCLogic {
   revealAll() {
     const seen = {};
     Object.keys(this.secRefs).forEach((k) => { seen[k] = true; });
-    this.setState({ seen, hlP: 1 });
+    this.setState({ seen });
   }
 
   setupIO() {
@@ -710,17 +769,92 @@ class Component extends DCLogic {
   reveal(key) {
     if (!key || this.state.seen[key]) return;
     this.setState((s) => ({ seen: { ...s.seen, [key]: true } }));
-    if (key === 'highlights') this.countUp();
   }
 
-  countUp() {
-    const t0 = performance.now();
-    const step = (now) => {
-      const p = Math.min(1, (now - t0) / 1500);
-      this.setState({ hlP: p });
-      if (p < 1) this.hlRaf = requestAnimationFrame(step);
-    };
-    this.hlRaf = requestAnimationFrame(step);
+  setupFigAP() {
+    if (this.props.figureAutoplay === false || this.reduced) {
+      this.ap.mot.auto = false;
+      this.ap.met.auto = false;
+      this.setState((s) => ({ apv: { mot: { ...s.apv.mot, auto: false }, met: { ...s.apv.met, auto: false } } }));
+    }
+    this.onVis = () => { this.apSync('mot'); this.apSync('met'); };
+    document.addEventListener('visibilitychange', this.onVis);
+    if (!('IntersectionObserver' in window)) return;
+    this.figIO = new IntersectionObserver((ents) => ents.forEach((en) => {
+      const k = en.target.getAttribute('data-fig');
+      if (!this.ap[k]) return;
+      this.ap[k].inView = en.isIntersecting && en.intersectionRatio >= 0.35;
+      this.apSync(k);
+    }), { threshold: [0, 0.35, 0.7] });
+    ['mot', 'met'].forEach((k) => {
+      const el = this.figRefs[k].current;
+      if (el) { el.setAttribute('data-fig', k); this.figIO.observe(el); }
+    });
+  }
+
+  setApv(k, patch) { this.setState((s) => ({ apv: { ...s.apv, [k]: { ...s.apv[k], ...patch } } })); }
+
+  apSync(k) {
+    const a = this.ap[k];
+    const can = a.auto && a.inView && !a.hover && !document.hidden;
+    if (can && !a.tm) this.apResume(k);
+    else if (!can && a.tm) this.apPause(k);
+  }
+
+  apResume(k) {
+    const a = this.ap[k];
+    const total = FIG_DWELL[this.state[k + 'Sel']] || 4000;
+    a.rem = Math.min(a.rem, total);
+    this.setApv(k, { w: 1 - a.rem / total, tr: 'none' });
+    cancelAnimationFrame(a.raf);
+    a.raf = requestAnimationFrame(() => {
+      a.raf = requestAnimationFrame(() => this.setApv(k, { w: 1, tr: 'width ' + Math.round(a.rem) + 'ms linear' }));
+    });
+    a.t0 = performance.now();
+    a.tm = setTimeout(() => this.apNext(k), a.rem);
+  }
+
+  apPause(k) {
+    const a = this.ap[k];
+    clearTimeout(a.tm);
+    a.tm = null;
+    cancelAnimationFrame(a.raf);
+    a.rem = Math.max(0, a.rem - (performance.now() - a.t0));
+    const total = FIG_DWELL[this.state[k + 'Sel']] || 4000;
+    this.setApv(k, { w: 1 - a.rem / total, tr: 'none' });
+  }
+
+  apNext(k) {
+    const a = this.ap[k];
+    a.tm = null;
+    const nx = FIG_SEQ[(FIG_SEQ.indexOf(this.state[k + 'Sel']) + 1) % FIG_SEQ.length];
+    a.rem = FIG_DWELL[nx];
+    this.setState((s) => ({ [k + 'Sel']: nx, apv: { ...s.apv, [k]: { ...s.apv[k], w: 0, tr: 'none' } } }), () => this.apSync(k));
+  }
+
+  apStop(k) {
+    const a = this.ap[k];
+    a.auto = false;
+    clearTimeout(a.tm);
+    a.tm = null;
+    cancelAnimationFrame(a.raf);
+    this.setApv(k, { auto: false, w: 0, tr: 'none' });
+  }
+
+  apStart(k) {
+    const a = this.ap[k];
+    a.auto = true;
+    a.rem = FIG_DWELL[this.state[k + 'Sel']] || 4000;
+    this.setApv(k, { auto: true, w: 0, tr: 'none' });
+    this.apSync(k);
+  }
+
+  pick(k, val) { this.apStop(k); this.setState({ [k + 'Sel']: val }); }
+
+  hover(k, val) {
+    this.setState({ [k + 'Hov']: val });
+    this.ap[k].hover = !!val;
+    this.apSync(k);
   }
 
   scroller() {
@@ -854,28 +988,39 @@ class Component extends DCLogic {
       onClick: (e) => this.go(id, e),
     }));
 
-    const hp = revealOn && !this.reduced ? s.hlP : 1;
-    const he = 1 - Math.pow(1 - hp, 3);
+    const gOn = seen('highlights');
+    const gl = { s: gOn ? 1 : 0, o: gOn ? 1 : 0, t: gOn ? 'none' : 'translateY(14px)' };
+    const glGo = {};
+    ['motivation', 'method', 'results', 'analysis'].forEach((id) => { glGo[id] = (e) => this.go(id, e); });
 
     const seg = (cur, val) => ({
       bg: cur === val ? '#FFFFFF' : 'rgba(0,0,0,0)',
       color: cur === val ? '#0B0D5B' : '#5F6880',
       sh: cur === val ? '0 2px 8px rgba(20,30,70,0.12)' : 'none',
     });
+    const segAP = (k, val) => {
+      const cur = s[k + 'Sel'];
+      const v = s.apv[k];
+      const on = v.auto && cur === val;
+      return { ...seg(cur, val), fw: on ? (v.w * 100).toFixed(2) + '%' : '0%', ftr: on ? v.tr : 'none', fo: on ? 1 : 0 };
+    };
+    const figCtl = (k) => ({
+      both: segAP(k, 'both'), a: segAP(k, 'a'), b: segAP(k, 'b'),
+      setBoth: () => this.pick(k, 'both'), setA: () => this.pick(k, 'a'), setB: () => this.pick(k, 'b'),
+      hovA: () => this.hover(k, 'a'), hovB: () => this.hover(k, 'b'), hovOff: () => this.hover(k, null),
+      auto: s.apv[k].auto, manual: !s.apv[k].auto,
+      toggle: () => (this.ap[k].auto ? this.apStop(k) : this.apStart(k)),
+    });
     const mf = s.motHov || s.motSel;
     const mot = {
-      both: seg(s.motSel, 'both'), a: seg(s.motSel, 'a'), b: seg(s.motSel, 'b'),
-      setBoth: () => this.setState({ motSel: 'both' }), setA: () => this.setState({ motSel: 'a' }), setB: () => this.setState({ motSel: 'b' }),
-      hovA: () => this.setState({ motHov: 'a' }), hovB: () => this.setState({ motHov: 'b' }), hovOff: () => this.setState({ motHov: null }),
+      ...figCtl('mot'),
       dimTop: mf === 'b' ? 1 : 0, dimBot: mf === 'a' ? 1 : 0, ringA: mf === 'a' ? 1 : 0, ringB: mf === 'b' ? 1 : 0,
       cardA: mf === 'a' ? '#F5F6FA' : '#FFFFFF', cardABd: mf === 'a' ? '#5A6377' : '#E5E8EC',
       cardB: mf === 'b' ? '#EEF0FC' : '#FFFFFF', cardBBd: mf === 'b' ? '#3F47B3' : '#E5E8EC',
     };
     const ef = s.metHov || s.metSel;
     const met = {
-      both: seg(s.metSel, 'both'), a: seg(s.metSel, 'a'), b: seg(s.metSel, 'b'),
-      setBoth: () => this.setState({ metSel: 'both' }), setA: () => this.setState({ metSel: 'a' }), setB: () => this.setState({ metSel: 'b' }),
-      hovA: () => this.setState({ metHov: 'a' }), hovB: () => this.setState({ metHov: 'b' }), hovOff: () => this.setState({ metHov: null }),
+      ...figCtl('met'),
       dimL: ef === 'b' ? 1 : 0, dimR: ef === 'a' ? 1 : 0, ringA: ef === 'a' ? 1 : 0, ringB: ef === 'b' ? 1 : 0,
       cardA: ef === 'a' ? '#EAF7F8' : '#FFFFFF', cardABd: ef === 'a' ? '#0096A7' : '#E5E8EC',
       cardB: ef === 'b' ? '#EEF0FC' : '#FFFFFF', cardBBd: ef === 'b' ? '#3F47B3' : '#E5E8EC',
@@ -1004,14 +1149,12 @@ class Component extends DCLogic {
 
     const videoSrc = (p.videoSrc || '').trim();
     return {
-      navRef: this.navRef, plotRef: this.plotRef, refs: this.secRefs, rv, navItems,
+      navRef: this.navRef, plotRef: this.plotRef, figRefs: this.figRefs, refs: this.secRefs, rv, navItems,
       progressW: (s.progress * 100).toFixed(2) + '%',
       goTop: (e) => this.go('top', e), goBib: (e) => this.go('bibtex', e),
       hasVideo: !!videoSrc, noVideo: !videoSrc, videoSrc,
       showHL: p.showHighlights !== false,
-      hl1: (66.44 * he).toFixed(2),
-      hl2: hp >= 1 ? '3×' : (1 + 2 * he).toFixed(1) + '×',
-      hl3: (100 - (100 - 2.37) * he).toFixed(2) + '%',
+      gl, glGo,
       mot, met, tableRows, abl, pts, tip, regionO: aOn ? 1 : 0,
       csRows, dots, cp, tabs,
       hint: s.tour ? 'Auto-playing all three auditors' : 'Pick an auditor to replay its online audit',
