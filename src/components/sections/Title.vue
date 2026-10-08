@@ -38,7 +38,7 @@ const authors = [
   {
     name: "Zeru Shi",
     icon: "",
-    homepage: "https://vanpe20.github.io/",
+    homepage: "https://darkbluee77.github.io/",
     address_flag: "1"
   },
   {
